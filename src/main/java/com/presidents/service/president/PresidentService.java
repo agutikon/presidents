@@ -1,12 +1,22 @@
 package com.presidents.service.president;
 
-import com.presidents.model.President;
+import com.presidents.model.dto.PresidentDto;
 
 import java.util.List;
+import java.util.Set;
 
 public interface PresidentService {
+    List<PresidentDto> getAllPresidents();
 
-    List<President> getAllPresidents();
+    Set<PresidentDto> findPresidentsByName(String name);
 
-    President savePresident(President president);
+    Set<PresidentDto> findPresidentsByParty (String party);
+    PresidentDto savePresident(PresidentDto presidentDto);
+
+    PresidentDto updatePresident(PresidentDto presidentDto);
+
+    PresidentDto updatePresidentPartial(PresidentDto presidentDto);
+    void deletePresident(Long id);
+
+
 }

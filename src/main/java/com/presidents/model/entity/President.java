@@ -1,4 +1,4 @@
-package com.presidents.model;
+package com.presidents.model.entity;
 
 import lombok.*;
 
@@ -14,8 +14,8 @@ import java.sql.Timestamp;
 @Table(name = "PRESIDENT")
 public class President {
 
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String surname;
