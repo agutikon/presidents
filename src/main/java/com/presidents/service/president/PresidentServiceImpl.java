@@ -73,7 +73,7 @@ public class PresidentServiceImpl implements PresidentService {
                 president.setParty(presidentDto.getParty());
             }
             return PresidentMapper.toDto(president);
-        }).get();
+        }).orElseThrow(() -> new RuntimeException("No such president"));
 
     }
 
