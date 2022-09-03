@@ -46,6 +46,7 @@ public class PresidentsController {
     public void deleteByName(@PathVariable Long id){
      presidentService.deletePresident(id);
     }
+
 }
 
 

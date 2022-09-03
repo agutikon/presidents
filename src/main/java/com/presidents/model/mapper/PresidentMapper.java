@@ -16,7 +16,6 @@ public interface PresidentMapper {
                .termTo(president.getTermTo())
                .build();
    }
-
    static President toEntity(PresidentDto presidentDto){
        return President.builder()
                .id(presidentDto.getId())

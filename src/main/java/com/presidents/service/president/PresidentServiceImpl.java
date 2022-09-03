@@ -81,5 +81,4 @@ public class PresidentServiceImpl implements PresidentService {
     public void deletePresident(Long id) {
         presidentsRepository.deleteById(id);
     }
-
 }

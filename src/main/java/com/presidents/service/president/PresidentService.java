@@ -18,5 +18,4 @@ public interface PresidentService {
     PresidentDto updatePresidentPartial(PresidentDto presidentDto);
     void deletePresident(Long id);
 
-
 }

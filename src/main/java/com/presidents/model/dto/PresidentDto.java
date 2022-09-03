@@ -3,7 +3,6 @@ package com.presidents.model.dto;
 import lombok.*;
 
 import java.sql.Timestamp;
-
 @Getter
 @Setter
 @NoArgsConstructor
