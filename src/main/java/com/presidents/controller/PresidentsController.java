@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Set;
 
@@ -33,18 +35,19 @@ public class PresidentsController {
 
 
     @PostMapping("save")
-    public PresidentDto save(@RequestBody PresidentDto presidentDto) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public PresidentDto save(@Valid @RequestBody PresidentDto presidentDto) {
         return presidentService.savePresident(presidentDto);
     }
     @PutMapping("update")
-    public PresidentDto update(@RequestBody PresidentDto presidentDto) {
+    public PresidentDto update(@Valid @RequestBody PresidentDto presidentDto) {
         return presidentService.updatePresident(presidentDto);
     }
 //    Wyjątek ogarnięty w celach dydaktycznych, finalnie zrobione inną metodą
-    @ExceptionHandler({RuntimeException.class, IllegalAccessError.class})
-    public final ResponseEntity<Object> handleExceptions(Exception ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler({RuntimeException.class, IllegalAccessError.class})
+//    public final ResponseEntity<Object> handleExceptions(Exception ex) {
+//        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
     @PatchMapping("update")
     public PresidentDto updatePartial(@RequestBody PresidentDto presidentDto) {
         return presidentService.updatePresidentPartial(presidentDto);
