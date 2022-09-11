@@ -23,6 +23,11 @@ public class PresidentsController {
         return presidentService.getAllPresidents();
     }
 
+    @GetMapping("/all-paginated")
+    public List<PresidentDto> getPresidentsPaginated(@RequestParam Integer pageNumber, @RequestParam Integer pageSize){
+        return presidentService.getAllPresidentsPaginated(pageNumber, pageSize).getContent();
+    }
+
     @GetMapping("find/{name}")
     public Set<PresidentDto> findPresidentsByName(@PathVariable String name){
         return presidentService.findPresidentsByName(name);
